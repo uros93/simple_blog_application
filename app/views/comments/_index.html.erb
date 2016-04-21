@@ -1,0 +1,6 @@
+<% comments.each do |c| %>
+<h4><%= c.author %></h4>
+<p><%= c.content %></p>
+<%= link_to "Obrisi komentar", post_comment_path(post_id,c.id), method: :delete %>
+<hr>
+<% end%>

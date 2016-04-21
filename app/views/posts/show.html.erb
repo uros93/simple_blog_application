@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %> </p>
+<h2>Komentari:</h2>
+<div id="komentari"><%= render :partial => 'comments/index', :locals=>{:comments => Comment.find(:all, :params => {:post_id => @post.id}), :post_id => @post.id} %>
+</div>
+<%= render(:partial => "comments/new" ,:controller => "comments", :locals =>{:comment => Comment.new(:author => "", :content => ""), :post_id => @post.id}) %>
+<%= link_to "Izmeni post", :action => "edit" %><br>
+<%= link_to "Vrati se na postove", :action => "index" %>
+
+
